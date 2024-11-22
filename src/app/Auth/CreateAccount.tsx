@@ -1,4 +1,3 @@
-// CreateAccount.tsx
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
@@ -17,6 +16,9 @@ export default function CreateAccount() {
       return;
     }
     console.log('Creating account with:', { name, phoneNumber, email, password });
+
+    // Redirect to the Login page after sign-up
+    router.push('/Auth/Login');
   };
 
   return (
@@ -69,9 +71,12 @@ export default function CreateAccount() {
 
       <Button title="Sign Up" onPress={handleSignUp} />
 
-      <TouchableOpacity onPress={() => router.push('/Auth/Login')}>
-        <Text style={styles.link}>Already have an account? Log in</Text>
-      </TouchableOpacity>
+      {/* Centered "Already have an account? Log in" */}
+      <View style={styles.center}>
+        <TouchableOpacity onPress={() => router.push('/Auth/Login')}>
+          <Text style={styles.link}>Already have an account? Log in</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
 }
@@ -108,5 +113,10 @@ const styles = StyleSheet.create({
   link: {
     color: '#007BFF',
     textDecorationLine: 'underline',
+    textAlign: 'center',
+  },
+  center: {
+    marginTop: 20,
+    alignItems: 'center', // Centers the link horizontally
   },
 });

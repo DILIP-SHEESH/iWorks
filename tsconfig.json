@@ -2,12 +2,12 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "baseUrl": "./src",  // This will make src/ the base directory
+    "baseUrl": "./src",
     "paths": {
-      "*": ["node_modules/*", "*"],  // This is for generic resolution
-      "@navigation/*": ["app/navigation/*"],  // Map @navigation to the navigation folder
-      "@user/*": ["app/User/*"],  // Map @user to the User folder
-      "@login/*": ["app/login/*"]  // Map @login to the login folder
+      "*": ["node_modules/*", "*"],
+      "@navigation/*": ["app/navigation/*"],
+      "@user/*": ["app/User/*"],
+      "@login/*": ["app/login/*"]
     }
   }
 }
